@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Simulação interativa do risco de alagamento por bairro.">
+  <title>Solução | Alaga Não</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="pular-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <div class="barra-acess" role="region" aria-label="Opções de acessibilidade">
+    <div class="container">
+      <span>Acessibilidade:</span>
+      <button type="button" id="btn-fonte-menos" aria-label="Diminuir tamanho da fonte">A−</button>
+      <button type="button" id="btn-fonte-mais" aria-label="Aumentar tamanho da fonte">A+</button>
+      <button type="button" id="btn-contraste" aria-pressed="false">Alto contraste</button>
+      <p id="aviso-acess" class="sr-only" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <header class="cabecalho">
+    <div class="container">
+      <a class="logo" href="index.html">
+        <img src="img/logo.svg" alt="" width="40" height="40">
+        <span>Alaga Não</span>
+      </a>
+      <button type="button" class="menu-botao" aria-expanded="false" aria-controls="menu-principal">Menu ☰</button>
+      <nav class="menu" id="menu-principal" aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="solucao.html" aria-current="page">Solução</a></li>
+          <li><a href="impacto.html">Impacto</a></li>
+          <li><a href="participe.html">Participe</a></li>
+          <li><a href="equipe.html">Equipe</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" tabindex="-1">
+    <section class="hero hero--simples" aria-labelledby="titulo-sol">
+      <div class="container">
+        <div>
+          <h1 id="titulo-sol">Simule um dia de chuva</h1>
+          <p>Escolha a cidade e a chuva prevista. O Alaga Não mostra na hora quais pontos vão alagar, quantas pessoas seriam avisadas e o que cada uma deve fazer.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao" aria-labelledby="titulo-painel">
+      <div class="container">
+        <h2 id="titulo-painel" class="sr-only">Painel da simulação</h2>
+        <form class="painel" id="form-simulacao" aria-describedby="como-usar">
+          <p id="como-usar" class="texto-suave">Arraste a barra de chuva (ou use as setas do teclado), filtre por cidade ou digite o nome do bairro.</p>
+          <div class="controles">
+            <div class="campo">
+              <label for="cidade">Cidade</label>
+              <select id="cidade" name="cidade">
+                <option value="todas">Todas as cidades</option>
+              </select>
+            </div>
+            <div class="campo">
+              <label for="busca">Buscar bairro ou local</label>
+              <input type="search" id="busca" name="busca" placeholder="Ex.: Centro, Ponte São João">
+            </div>
+            <div class="campo campo--chuva">
+              <label for="chuva">Chuva prevista: <output id="valor-chuva" class="valor-chuva" for="chuva">30 mm/h</output></label>
+              <input type="range" id="chuva" name="chuva" min="0" max="80" step="1" value="30" aria-describedby="escala-chuva">
+              <span id="escala-chuva" class="dica-campo">0 = sem chuva · 10 = moderada · 30 = forte · 50+ = temporal</span>
+            </div>
+          </div>
+          <div class="cenarios" role="group" aria-label="Cenários prontos">
+            <span class="cenarios__rotulo">Ou teste um cenário:</span>
+            <button type="button" class="botao botao--contorno botao--pequeno" data-chuva="5">Garoa <small>5 mm/h</small></button>
+            <button type="button" class="botao botao--contorno botao--pequeno" data-chuva="25">Chuva forte <small>25 mm/h</small></button>
+            <button type="button" class="botao botao--contorno botao--pequeno" data-chuva="45">Temporal <small>45 mm/h</small></button>
+            <button type="button" class="botao botao--contorno botao--pequeno" data-chuva="71">Extremo <small>71 mm/h</small></button>
+          </div>
+        </form>
+
+        <div class="resumo" aria-label="Resumo dos pontos por nível de risco">
+          <p class="resumo__item resumo__item--alto"><strong id="total-alto">0</strong> risco alto</p>
+          <p class="resumo__item resumo__item--atencao"><strong id="total-atencao">0</strong> atenção</p>
+          <p class="resumo__item resumo__item--baixo"><strong id="total-baixo">0</strong> risco baixo</p>
+        </div>
+
+        <p id="mensagem-sim" class="mensagem-sim" role="status" aria-live="polite"></p>
+
+        <h2>Pontos monitorados</h2>
+        <ul class="lista-pontos" id="lista-pontos"></ul>
+
+        <p class="aviso-dados"><strong>Obs.:</strong> isto é um protótipo. Os pontos, limites de chuva e número de moradores são <strong>dados simulados</strong> pelo grupo para demonstrar o funcionamento. Na versão real eles viriam da Defesa Civil de cada cidade e dos pluviômetros do Cemaden.</p>
+      </div>
+    </section>
+
+    <section class="secao secao--clara" aria-labelledby="titulo-como">
+      <div class="container">
+        <h2 id="titulo-como">Como a solução funciona</h2>
+        <p class="texto-suave">Em três passos, do jeito que a gente pensou:</p>
+        <ol class="etapas">
+          <li class="etapa">
+            <span class="etapa__num" aria-hidden="true">1</span>
+            <h3>Mapear onde alaga</h3>
+            <p>Cada ponto tem um limite de chuva (mm/h) em que costuma alagar, definido pelo histórico da Defesa Civil e confirmado pelos moradores.</p>
+          </li>
+          <li class="etapa">
+            <span class="etapa__num" aria-hidden="true">2</span>
+            <h3>Cruzar com a chuva</h3>
+            <p>A chuva prevista e a medida em tempo real pelos pluviômetros do Cemaden são comparadas com o limite de cada ponto.</p>
+          </li>
+          <li class="etapa">
+            <span class="etapa__num" aria-hidden="true">3</span>
+            <h3>Avisar quem mora lá</h3>
+            <p><span class="marca marca--laranja">Laranja</span> a partir de 70% do limite (prepare-se). <span class="marca marca--vermelho">Vermelho</span> ao atingir o limite (saia da área / evite a rua). Chega por SMS, que funciona sem internet.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <div>
+        <p><strong>Alaga Não</strong> — alertas de alagamento para Louveira e região.</p>
+        <p>Global Solution 2026/2 · CitizenTech · FIAP · 1º ano Engenharia de Software</p>
+      </div>
+      <div>
+        <p>Protótipo acadêmico. Em emergência ligue <strong>199</strong> (Defesa Civil) ou <strong>193</strong> (Bombeiros).</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/acessibilidade.js"></script>
+  <script src="js/dados.js"></script>
+  <script src="js/simulacao.js"></script>
+</body>
+</html>

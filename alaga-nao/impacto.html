@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Quem ganha com o Alaga Não, como o impacto é medido e ampliado.">
+  <title>Impacto | Alaga Não</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="pular-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <div class="barra-acess" role="region" aria-label="Opções de acessibilidade">
+    <div class="container">
+      <span>Acessibilidade:</span>
+      <button type="button" id="btn-fonte-menos" aria-label="Diminuir tamanho da fonte">A−</button>
+      <button type="button" id="btn-fonte-mais" aria-label="Aumentar tamanho da fonte">A+</button>
+      <button type="button" id="btn-contraste" aria-pressed="false">Alto contraste</button>
+      <p id="aviso-acess" class="sr-only" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <header class="cabecalho">
+    <div class="container">
+      <a class="logo" href="index.html">
+        <img src="img/logo.svg" alt="" width="40" height="40">
+        <span>Alaga Não</span>
+      </a>
+      <button type="button" class="menu-botao" aria-expanded="false" aria-controls="menu-principal">Menu ☰</button>
+      <nav class="menu" id="menu-principal" aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="solucao.html">Solução</a></li>
+          <li><a href="impacto.html" aria-current="page">Impacto</a></li>
+          <li><a href="participe.html">Participe</a></li>
+          <li><a href="equipe.html">Equipe</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" tabindex="-1">
+    <section class="hero hero--simples" aria-labelledby="titulo-imp">
+      <div class="container">
+        <div>
+          <h1 id="titulo-imp">O impacto do Alaga Não</h1>
+          <p>Minutos de antecedência fazem diferença: dá tempo de subir móveis, tirar o carro da rua e sair de casa com segurança.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao" aria-labelledby="titulo-quem">
+      <div class="container">
+        <h2 id="titulo-quem">Quem ganha com a solução</h2>
+        <div class="grade">
+          <article class="cartao cartao--publico">
+            <span class="cartao__icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg>
+            </span>
+            <h3>Famílias</h3><p>Menos perdas de móveis, eletrodomésticos e documentos. Mais segurança para crianças e idosos.</p>
+          </article>
+          <article class="cartao cartao--publico">
+            <span class="cartao__icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 16.5v-4l1.8-4.6A1.5 1.5 0 0 1 7.2 7h9.6a1.5 1.5 0 0 1 1.4.9l1.8 4.6v4"/><path d="M3 16.5h18"/><path d="M4 12.5h16"/><circle cx="7.5" cy="18" r="1.5"/><circle cx="16.5" cy="18" r="1.5"/></svg>
+            </span>
+            <h3>Quem se desloca</h3><p>Trabalhadores e motoristas evitam ruas que vão alagar e não ficam presos no caminho.</p>
+          </article>
+          <article class="cartao cartao--publico">
+            <span class="cartao__icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 21v-9"/><path d="M12 12C12 8 9.5 5.5 5 5.5c0 4.5 2.5 6.5 7 6.5Z"/><path d="M12 14.5c0-3.5 2.2-6 6.5-6 0 4-2.2 6-6.5 6Z"/><path d="M5 21h14"/></svg>
+            </span>
+            <h3>Produtor rural</h3><p>Sabe quando adiar o transporte da colheita por estradas de terra que viram lama.</p>
+          </article>
+          <article class="cartao cartao--publico">
+            <span class="cartao__icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.5c0 4.5 3.2 8 7.5 9.5 4.3-1.5 7.5-5 7.5-9.5V6Z"/><path d="M12 8.5v6"/><path d="M9 11.5h6"/></svg>
+            </span>
+            <h3>Defesa Civil</h3><p>Ganha um canal direto com os moradores de cada ponto e relatos em tempo real.</p>
+          </article>
+          <article class="cartao cartao--publico">
+            <span class="cartao__icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 9.5 5.5 5h13L20 9.5"/><path d="M4 9.5c0 1.4 1.1 2.5 2.7 2.5s2.6-1.1 2.6-2.5c0 1.4 1.2 2.5 2.7 2.5s2.7-1.1 2.7-2.5c0 1.4 1 2.5 2.6 2.5S20 10.9 20 9.5"/><path d="M5.5 12v8h13v-8"/><path d="M10 20v-4.5h4V20"/></svg>
+            </span>
+            <h3>Escolas e comércio</h3><p>Podem se organizar antes: suspender aula, proteger estoque, liberar funcionários.</p>
+          </article>
+          <article class="cartao cartao--publico">
+            <span class="cartao__icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3.5 9 12 4.5 20.5 9"/><path d="M4.5 9h15"/><path d="M6.5 9v8.5"/><path d="M10 9v8.5"/><path d="M14 9v8.5"/><path d="M17.5 9v8.5"/><path d="M3.5 20.5h17"/><path d="M4.5 17.5h15"/></svg>
+            </span>
+            <h3>Prefeituras</h3><p>Dados sobre onde alaga mais ajudam a priorizar obras de drenagem e limpeza de bueiros.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao secao--clara" aria-labelledby="titulo-medir">
+      <div class="container">
+        <h2 id="titulo-medir">Como vamos medir o impacto</h2>
+        <div class="tabela-wrap">
+          <table>
+            <caption class="sr-only">Indicadores de impacto e metas do primeiro ano</caption>
+            <thead>
+              <tr><th scope="col">Indicador</th><th scope="col">Como medimos</th><th scope="col">Meta no 1º ano</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Moradores cadastrados</td><td>Cadastros na página Participe</td><td>5.000 em Louveira e região</td></tr>
+              <tr><td>Antecedência do alerta</td><td>Tempo entre o alerta e o 1º relato de alagamento</td><td>30 minutos ou mais</td></tr>
+              <tr><td>Alertas confirmados</td><td>Moradores respondem "alagou / não alagou"</td><td>80% de acerto</td></tr>
+              <tr><td>Pessoas que agiram</td><td>Pesquisa rápida após cada evento</td><td>60% tomaram alguma medida</td></tr>
+              <tr><td>Novos pontos mapeados</td><td>Relatos enviados pela comunidade</td><td>+50 pontos</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao" aria-labelledby="titulo-eco">
+      <div class="container grade grade--2">
+        <div>
+          <h2 id="titulo-eco">Ecossistema</h2>
+          <ul>
+            <li><strong>Defesa Civil municipal:</strong> valida os pontos de risco e dispara alertas oficiais.</li>
+            <li><strong>Cemaden:</strong> dados dos pluviômetros e previsão de chuva.</li>
+            <li><strong>Prefeituras:</strong> divulgação e uso dos dados para obras.</li>
+            <li><strong>Moradores e associações de bairro:</strong> confirmam e relatam alagamentos.</li>
+            <li><strong>Escolas e comércio local:</strong> ajudam a cadastrar a comunidade.</li>
+          </ul>
+        </div>
+        <div>
+          <h2>Como ampliar</h2>
+          <ul>
+            <li>Começar por Louveira e Jundiaí e levar para as cidades vizinhas.</li>
+            <li>Adicionar alertas de deslizamento e de ondas de calor.</li>
+            <li>Instalar sensores de nível de baixo custo em córregos críticos.</li>
+            <li>Modelo sustentável: convênio com prefeituras e patrocínio de empresas da região.</li>
+          </ul>
+          <h2>Segura e inclusiva</h2>
+          <p>Pedimos só o necessário (nome, celular, bairro), com consentimento conforme a <strong>LGPD</strong>. O alerta por <strong>SMS</strong> funciona em celular simples e sem internet, e o site tem alto contraste, ajuste de fonte e navegação por teclado.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <div>
+        <p><strong>Alaga Não</strong> — alertas de alagamento para Louveira e região.</p>
+        <p>Global Solution 2026/2 · CitizenTech · FIAP · 1º ano Engenharia de Software</p>
+      </div>
+      <div>
+        <p>Protótipo acadêmico. Em emergência ligue <strong>199</strong> (Defesa Civil) ou <strong>193</strong> (Bombeiros).</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/acessibilidade.js"></script>
+</body>
+</html>

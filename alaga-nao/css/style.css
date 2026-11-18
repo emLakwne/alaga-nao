@@ -1,0 +1,1126 @@
+/* ==========================================================
+   Alaga Não — estilos gerais
+   Organização: variáveis > base > cabeçalho/menu > componentes
+   > páginas > acessibilidade > responsividade (media queries)
+   ========================================================== */
+
+/* ---------- Variáveis de cor e tamanho ---------- */
+:root {
+  --azul-escuro: #0b3954;
+  --azul: #1565c0;
+  --azul-claro: #e3f0fb;
+  --texto: #1b1f24;
+  --texto-suave: #4a5560;
+  --fundo: #f7f9fb;
+  --branco: #ffffff;
+  --borda: #d0d7de;
+
+  /* cores de risco (todas com contraste AA sobre branco) */
+  --risco-alto: #b3261e;
+  --risco-alto-fundo: #fdecea;
+  --risco-atencao: #8a5300;
+  --risco-atencao-fundo: #fff4e0;
+  --risco-baixo: #1e6b34;
+  --risco-baixo-fundo: #e8f5ec;
+
+  --foco: #ffbf47;
+  --raio: 12px;
+  --sombra: 0 2px 8px rgba(11, 57, 84, 0.12);
+  --largura-max: 1100px;
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--texto);
+  background: var(--fundo);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--azul);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+  color: var(--azul-escuro);
+}
+
+h1 {
+  font-size: 2.2rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.secao {
+  padding: 3rem 0;
+}
+
+.secao--clara {
+  background: var(--branco);
+}
+
+.texto-suave {
+  color: var(--texto-suave);
+}
+
+/* Foco visível para quem navega pelo teclado */
+:focus-visible {
+  outline: 3px solid var(--foco);
+  outline-offset: 3px;
+}
+
+/* Link "pular para o conteúdo" — aparece só ao receber foco */
+.pular-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--foco);
+  color: #000;
+  padding: 0.75rem 1rem;
+  z-index: 100;
+  font-weight: bold;
+}
+
+.pular-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* Texto lido só por leitores de tela */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Barra de acessibilidade ---------- */
+.barra-acess {
+  background: var(--azul-escuro);
+  color: var(--branco);
+  font-size: 0.9rem;
+}
+
+.barra-acess .container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.barra-acess button {
+  background: transparent;
+  color: var(--branco);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 6px;
+  padding: 0.25rem 0.6rem;
+  cursor: pointer;
+  font: inherit;
+}
+
+.barra-acess button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ---------- Cabeçalho e menu ---------- */
+.cabecalho {
+  background: var(--branco);
+  box-shadow: var(--sombra);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.cabecalho .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--azul-escuro);
+  font-weight: 800;
+  font-size: 1.3rem;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0.25rem;
+}
+
+.menu a {
+  display: block;
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--texto);
+  font-weight: 600;
+}
+
+.menu a:hover {
+  background: var(--azul-claro);
+}
+
+.menu a[aria-current="page"] {
+  background: var(--azul);
+  color: var(--branco);
+}
+
+.menu-botao {
+  display: none;
+  background: var(--azul);
+  color: var(--branco);
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 0.9rem;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ---------- Botões ---------- */
+.botao {
+  display: inline-block;
+  background: var(--azul);
+  color: var(--branco);
+  border: 2px solid var(--azul);
+  padding: 0.75rem 1.4rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.botao:hover {
+  background: var(--azul-escuro);
+  border-color: var(--azul-escuro);
+}
+
+.botao--contorno {
+  background: transparent;
+  color: var(--azul);
+}
+
+.botao--contorno:hover {
+  color: var(--branco);
+}
+
+.botao--pequeno {
+  padding: 0.4rem 0.9rem;
+  font-size: 0.9rem;
+}
+
+/* ---------- Hero (topo das páginas) ---------- */
+.hero {
+  background: linear-gradient(135deg, var(--azul-escuro), var(--azul));
+  color: var(--branco);
+  padding: 3.5rem 0;
+}
+
+.hero h1,
+.hero h2 {
+  color: var(--branco);
+}
+
+.hero .container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero p {
+  font-size: 1.15rem;
+}
+
+.hero .botoes {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.hero .botao {
+  background: var(--branco);
+  color: var(--azul-escuro);
+  border-color: var(--branco);
+}
+
+.hero .botao--contorno {
+  background: transparent;
+  color: var(--branco);
+}
+
+.hero--simples .container {
+  grid-template-columns: 1fr;
+}
+
+/* ---------- Cartões e grades ---------- */
+.grade {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.grade--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grade--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.cartao {
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 1.5rem;
+  box-shadow: var(--sombra);
+}
+
+.cartao h3 {
+  margin-top: 0;
+}
+
+/* Cartões "Quem ganha" com ícone em traço */
+.cartao--publico {
+  border-top: 3px solid var(--azul);
+}
+
+.cartao__icone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  background: var(--azul-claro);
+  color: var(--azul);
+}
+
+.cartao__icone svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cartao--publico h3 {
+  color: var(--azul-escuro);
+}
+
+/* Destaque do dado real */
+.dado-real {
+  background: var(--azul-claro);
+  border-left: 6px solid var(--azul);
+  border-radius: var(--raio);
+  padding: 1.5rem;
+}
+
+.dado-real .numero {
+  display: block;
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: var(--azul-escuro);
+  line-height: 1.1;
+}
+
+.fonte {
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+/* Selos de ODS */
+.ods-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.ods {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 0.75rem 1rem;
+  flex: 1 1 240px;
+}
+
+.ods__num {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--branco);
+  font-weight: 800;
+  font-size: 1.4rem;
+}
+
+/* cores oficiais aproximadas dos ODS (escurecidas p/ contraste) */
+.ods--11 .ods__num {
+  background: #b36b00;
+}
+
+.ods--13 .ods__num {
+  background: #3f7e44;
+}
+
+.ods--3 .ods__num {
+  background: #2e7d32;
+}
+
+.ods--10 .ods__num {
+  background: #c2185b;
+}
+
+/* Passos numerados (como funciona) */
+.passos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  counter-reset: passo;
+}
+
+.passos li {
+  counter-increment: passo;
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 1.25rem;
+}
+
+.passos li::before {
+  content: counter(passo);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--azul);
+  color: var(--branco);
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+/* ---------- Simulação ---------- */
+.painel {
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 1.5rem;
+  box-shadow: var(--sombra);
+}
+
+.controles {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.4fr;
+  gap: 1.25rem;
+  align-items: end;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.campo label,
+.campo legend {
+  font-weight: 700;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  font: inherit;
+  padding: 0.65rem 0.75rem;
+  border: 2px solid var(--borda);
+  border-radius: 8px;
+  background: var(--branco);
+  color: var(--texto);
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  border-color: var(--azul);
+}
+
+.campo input[type="range"] {
+  padding: 0;
+  border: none;
+  accent-color: var(--azul);
+}
+
+.valor-chuva {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--azul-escuro);
+}
+
+.cenarios {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.cenarios__rotulo {
+  font-size: 0.95rem;
+  color: var(--texto-suave);
+  margin-right: 0.25rem;
+}
+
+.cenarios small {
+  font-weight: 400;
+  opacity: 0.75;
+  margin-left: 0.2rem;
+}
+
+/* Etapas da solução — bordas levemente tortas, como desenho à mão */
+.etapas {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem 1.5rem;
+}
+
+.etapa {
+  position: relative;
+  background: var(--branco);
+  border: 2px solid var(--azul-escuro);
+  border-radius: 18px 6px 22px 8px / 8px 20px 6px 18px;
+  padding: 2rem 1.5rem 1.5rem;
+  box-shadow: 4px 4px 0 var(--azul-claro);
+}
+
+.etapa:nth-child(2) {
+  border-radius: 8px 20px 6px 16px / 18px 6px 20px 8px;
+  transform: rotate(0.4deg);
+}
+
+.etapa:nth-child(3) {
+  border-radius: 20px 8px 16px 6px / 6px 16px 8px 22px;
+  transform: rotate(-0.3deg);
+}
+
+.etapa__num {
+  position: absolute;
+  top: -1.1rem;
+  left: 1.25rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: grid;
+  place-items: center;
+  background: var(--foco);
+  color: var(--azul-escuro);
+  font-weight: 800;
+  font-size: 1.2rem;
+  border: 2px solid var(--azul-escuro);
+  border-radius: 52% 48% 55% 45% / 47% 55% 45% 53%;
+}
+
+.etapa h3 {
+  margin: 0 0 0.5rem;
+  display: inline;
+  background: linear-gradient(transparent 62%, rgba(255, 191, 71, 0.55) 62%, rgba(255, 191, 71, 0.55) 90%, transparent 90%);
+}
+
+.etapa p {
+  margin: 0.75rem 0 0;
+}
+
+.marca {
+  font-weight: 700;
+  padding: 0 0.2rem;
+  border-radius: 3px;
+}
+
+.marca--laranja {
+  color: var(--risco-atencao);
+  background: var(--risco-atencao-fundo);
+}
+
+.marca--vermelho {
+  color: var(--risco-alto);
+  background: var(--risco-alto-fundo);
+}
+
+.resumo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.resumo__item {
+  border-radius: var(--raio);
+  padding: 1rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.resumo__item strong {
+  display: block;
+  font-size: 2rem;
+}
+
+.resumo__item--alto {
+  background: var(--risco-alto-fundo);
+  color: var(--risco-alto);
+}
+
+.resumo__item--atencao {
+  background: var(--risco-atencao-fundo);
+  color: var(--risco-atencao);
+}
+
+.resumo__item--baixo {
+  background: var(--risco-baixo-fundo);
+  color: var(--risco-baixo);
+}
+
+.mensagem-sim {
+  padding: 1rem 1.25rem;
+  border-radius: var(--raio);
+  font-weight: 600;
+  background: var(--azul-claro);
+  color: var(--azul-escuro);
+  border-left: 6px solid var(--azul);
+}
+
+.mensagem-sim--alto {
+  background: var(--risco-alto-fundo);
+  color: var(--risco-alto);
+  border-left-color: var(--risco-alto);
+}
+
+.mensagem-sim--atencao {
+  background: var(--risco-atencao-fundo);
+  color: var(--risco-atencao);
+  border-left-color: var(--risco-atencao);
+}
+
+.mensagem-sim--baixo {
+  background: var(--risco-baixo-fundo);
+  color: var(--risco-baixo);
+  border-left-color: var(--risco-baixo);
+}
+
+.lista-pontos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.ponto {
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-left: 8px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 1.1rem 1.25rem;
+}
+
+.ponto h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.1rem;
+}
+
+.ponto--alto {
+  border-left-color: var(--risco-alto);
+}
+
+.ponto--atencao {
+  border-left-color: var(--risco-atencao);
+}
+
+.ponto--baixo {
+  border-left-color: var(--risco-baixo);
+}
+
+.etiqueta {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.etiqueta--alto {
+  background: var(--risco-alto-fundo);
+  color: var(--risco-alto);
+}
+
+.etiqueta--atencao {
+  background: var(--risco-atencao-fundo);
+  color: var(--risco-atencao);
+}
+
+.etiqueta--baixo {
+  background: var(--risco-baixo-fundo);
+  color: var(--risco-baixo);
+}
+
+.ponto__info {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  color: var(--texto-suave);
+}
+
+.ponto__dica {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  background: var(--fundo);
+  border-radius: 8px;
+}
+
+.aviso-dados {
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+  margin-top: 1.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px dashed var(--borda);
+  border-radius: 8px;
+}
+
+/* ---------- Formulário ---------- */
+.formulario {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.formulario .campo--inteiro {
+  grid-column: 1 / -1;
+}
+
+fieldset.campo {
+  border: 2px solid var(--borda);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin: 0;
+}
+
+.opcao {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 400;
+}
+
+.opcao input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--azul);
+}
+
+.dica-campo {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+.erro {
+  color: var(--risco-alto);
+  font-weight: 700;
+  font-size: 0.9rem;
+  min-height: 1.2em;
+}
+
+.campo [aria-invalid="true"],
+fieldset.campo.invalido {
+  border-color: var(--risco-alto);
+}
+
+.msg-form {
+  grid-column: 1 / -1;
+  padding: 1rem 1.25rem;
+  border-radius: var(--raio);
+  font-weight: 700;
+}
+
+.msg-form:empty {
+  display: none;
+}
+
+.msg-form--sucesso {
+  background: var(--risco-baixo-fundo);
+  color: var(--risco-baixo);
+  border: 2px solid var(--risco-baixo);
+}
+
+.msg-form--erro {
+  background: var(--risco-alto-fundo);
+  color: var(--risco-alto);
+  border: 2px solid var(--risco-alto);
+}
+
+/* ---------- Equipe ---------- */
+.membro {
+  text-align: center;
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  background: var(--azul);
+  color: var(--branco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.membro h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.membro p {
+  margin: 0.25rem 0;
+}
+
+/* ---------- Tabela (impacto) ---------- */
+.tabela-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--branco);
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--borda);
+}
+
+th {
+  background: var(--azul-escuro);
+  color: var(--branco);
+}
+
+/* ---------- Rodapé ---------- */
+.rodape {
+  background: var(--azul-escuro);
+  color: var(--branco);
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+
+.rodape a {
+  color: var(--branco);
+}
+
+.rodape .container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.rodape p {
+  margin: 0.25rem 0;
+}
+
+/* ==========================================================
+   Acessibilidade extra: alto contraste e tamanho da fonte
+   (classes adicionadas no <html> pelo js/acessibilidade.js)
+   ========================================================== */
+html.fonte-maior {
+  font-size: 112.5%;
+}
+
+html.fonte-gigante {
+  font-size: 125%;
+}
+
+html.alto-contraste {
+  --azul-escuro: #000000;
+  --azul: #000000;
+  --azul-claro: #000000;
+  --texto: #ffffff;
+  --texto-suave: #ffffff;
+  --fundo: #000000;
+  --branco: #000000;
+  --borda: #ffff00;
+  --risco-alto: #ff6b6b;
+  --risco-alto-fundo: #000000;
+  --risco-atencao: #ffd54f;
+  --risco-atencao-fundo: #000000;
+  --risco-baixo: #7cff7c;
+  --risco-baixo-fundo: #000000;
+}
+
+html.alto-contraste a,
+html.alto-contraste h1,
+html.alto-contraste h2,
+html.alto-contraste h3,
+html.alto-contraste .valor-chuva,
+html.alto-contraste .dado-real .numero {
+  color: #ffff00;
+}
+
+html.alto-contraste .botao,
+html.alto-contraste .menu-botao,
+html.alto-contraste .menu a[aria-current="page"] {
+  background: #ffff00;
+  color: #000000;
+  border-color: #ffff00;
+}
+
+html.alto-contraste .hero {
+  background: #000000;
+  border-bottom: 2px solid #ffff00;
+}
+
+/* áreas que usavam texto branco sobre azul */
+html.alto-contraste .hero,
+html.alto-contraste .barra-acess,
+html.alto-contraste .barra-acess button,
+html.alto-contraste .rodape {
+  color: #ffffff;
+}
+
+html.alto-contraste .barra-acess {
+  border-bottom: 2px solid #ffff00;
+}
+
+html.alto-contraste .barra-acess button {
+  border-color: #ffff00;
+}
+
+html.alto-contraste .barra-acess button[aria-pressed="true"] {
+  background: #ffff00;
+  color: #000000;
+}
+
+html.alto-contraste .hero .botao--contorno {
+  background: #000000;
+  color: #ffff00;
+}
+
+html.alto-contraste .cartao,
+html.alto-contraste .painel,
+html.alto-contraste .ponto,
+html.alto-contraste .passos li,
+html.alto-contraste .etapa,
+html.alto-contraste .ods,
+html.alto-contraste .resumo__item,
+html.alto-contraste .mensagem-sim {
+  border: 2px solid #ffff00;
+}
+
+html.alto-contraste .avatar,
+html.alto-contraste .passos li::before,
+html.alto-contraste .etapa__num {
+  background: #ffff00;
+  color: #000000;
+}
+
+html.alto-contraste .etapa {
+  background: #000000;
+  box-shadow: none;
+}
+
+html.alto-contraste .etapa h3 {
+  background: none;
+  text-decoration: underline;
+}
+
+html.alto-contraste .cartao__icone {
+  background: #000000;
+  color: #ffff00;
+  border: 2px solid #ffff00;
+}
+
+html.alto-contraste .marca,
+html.alto-contraste .mensagem-sim {
+  background: #000000;
+  color: #ffff00;
+}
+
+/* ==========================================================
+   Responsividade
+   ========================================================== */
+
+/* Tablets */
+@media (max-width: 900px) {
+  .grade,
+  .grade--4,
+  .passos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .etapas {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .controles {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .controles .campo--chuva {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Celulares */
+@media (max-width: 700px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .hero .container,
+  .grade,
+  .grade--2,
+  .grade--4,
+  .passos,
+  .controles,
+  .lista-pontos,
+  .formulario {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__imagem {
+    display: none;
+  }
+
+  .resumo {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .resumo__item {
+    padding: 0.6rem 0.25rem;
+    font-size: 0.85rem;
+  }
+
+  .resumo__item strong {
+    font-size: 1.5rem;
+  }
+
+  /* Menu vira "gaveta" controlada pelo botão */
+  .menu-botao {
+    display: block;
+  }
+
+  .menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--branco);
+    box-shadow: var(--sombra);
+    display: none;
+  }
+
+  .menu.aberto {
+    display: block;
+  }
+
+  .menu ul {
+    flex-direction: column;
+    padding: 0.5rem 1.25rem 1rem;
+  }
+
+  .menu a {
+    padding: 0.75rem 1rem;
+  }
+}
+
+/* Respeita quem prefere menos animação */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

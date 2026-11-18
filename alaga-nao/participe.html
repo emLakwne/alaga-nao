@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cadastre-se para receber alertas de alagamento do seu bairro.">
+  <title>Participe | Alaga Não</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="pular-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <div class="barra-acess" role="region" aria-label="Opções de acessibilidade">
+    <div class="container">
+      <span>Acessibilidade:</span>
+      <button type="button" id="btn-fonte-menos" aria-label="Diminuir tamanho da fonte">A−</button>
+      <button type="button" id="btn-fonte-mais" aria-label="Aumentar tamanho da fonte">A+</button>
+      <button type="button" id="btn-contraste" aria-pressed="false">Alto contraste</button>
+      <p id="aviso-acess" class="sr-only" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <header class="cabecalho">
+    <div class="container">
+      <a class="logo" href="index.html">
+        <img src="img/logo.svg" alt="" width="40" height="40">
+        <span>Alaga Não</span>
+      </a>
+      <button type="button" class="menu-botao" aria-expanded="false" aria-controls="menu-principal">Menu ☰</button>
+      <nav class="menu" id="menu-principal" aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="solucao.html">Solução</a></li>
+          <li><a href="impacto.html">Impacto</a></li>
+          <li><a href="participe.html" aria-current="page">Participe</a></li>
+          <li><a href="equipe.html">Equipe</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" tabindex="-1">
+    <section class="hero hero--simples" aria-labelledby="titulo-part">
+      <div class="container">
+        <div>
+          <h1 id="titulo-part">Receba alertas do seu bairro</h1>
+          <p>Cadastre-se em menos de 1 minuto. Você só recebe aviso quando houver risco perto de você.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao" aria-labelledby="titulo-form">
+      <div class="container">
+        <div class="painel">
+          <h2 id="titulo-form">Cadastro de alerta</h2>
+          <p class="texto-suave">Campos com * são obrigatórios.</p>
+          <form id="form-alerta" class="formulario" novalidate>
+            <div class="campo">
+              <label for="nome">Nome completo *</label>
+              <input type="text" id="nome" name="nome" autocomplete="name" required aria-describedby="erro-nome">
+              <span class="erro" id="erro-nome"></span>
+            </div>
+            <div class="campo">
+              <label for="celular">Celular com DDD *</label>
+              <input type="tel" id="celular" name="celular" autocomplete="tel" inputmode="numeric" placeholder="(19) 99999-9999" required aria-describedby="dica-celular erro-celular">
+              <span class="dica-campo" id="dica-celular">É para onde enviaremos o SMS ou WhatsApp.</span>
+              <span class="erro" id="erro-celular"></span>
+            </div>
+            <div class="campo">
+              <label for="email">E-mail (opcional)</label>
+              <input type="email" id="email" name="email" autocomplete="email" aria-describedby="erro-email">
+              <span class="erro" id="erro-email"></span>
+            </div>
+            <div class="campo">
+              <label for="cidade-form">Cidade *</label>
+              <select id="cidade-form" name="cidade" required aria-describedby="erro-cidade-form">
+                <option value="">Selecione…</option>
+                <option>Itupeva</option>
+                <option>Jundiaí</option>
+                <option>Louveira</option>
+                <option>Valinhos</option>
+                <option>Vinhedo</option>
+              </select>
+              <span class="erro" id="erro-cidade-form"></span>
+            </div>
+            <div class="campo campo--inteiro">
+              <label for="bairro">Bairro *</label>
+              <input type="text" id="bairro" name="bairro" required aria-describedby="erro-bairro">
+              <span class="erro" id="erro-bairro"></span>
+            </div>
+            <fieldset class="campo campo--inteiro" id="grupo-canais" aria-describedby="erro-canais">
+              <legend>Como quer receber o alerta? *</legend>
+              <label class="opcao"><input type="checkbox" name="canal" value="sms"> SMS (funciona sem internet)</label>
+              <label class="opcao"><input type="checkbox" name="canal" value="whatsapp"> WhatsApp</label>
+              <label class="opcao"><input type="checkbox" name="canal" value="email"> E-mail</label>
+              <span class="erro" id="erro-canais"></span>
+            </fieldset>
+            <div class="campo campo--inteiro">
+              <label class="opcao" for="aceite"><input type="checkbox" id="aceite" name="aceite" aria-describedby="erro-aceite"> Autorizo o uso dos meus dados apenas para envio de alertas, conforme a LGPD. *</label>
+              <span class="erro" id="erro-aceite"></span>
+            </div>
+            <div class="campo--inteiro">
+              <button type="submit" class="botao">Quero receber alertas</button>
+            </div>
+            <p id="msg-form" class="msg-form" role="status" aria-live="polite" tabindex="-1"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <div>
+        <p><strong>Alaga Não</strong> — alertas de alagamento para Louveira e região.</p>
+        <p>Global Solution 2026/2 · CitizenTech · FIAP · 1º ano Engenharia de Software</p>
+      </div>
+      <div>
+        <p>Protótipo acadêmico. Em emergência ligue <strong>199</strong> (Defesa Civil) ou <strong>193</strong> (Bombeiros).</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/acessibilidade.js"></script>
+  <script src="js/formulario.js"></script>
+</body>
+</html>

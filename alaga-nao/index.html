@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Alaga Não: alertas de alagamento por bairro para Louveira e região.">
+  <title>Início | Alaga Não</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="pular-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <div class="barra-acess" role="region" aria-label="Opções de acessibilidade">
+    <div class="container">
+      <span>Acessibilidade:</span>
+      <button type="button" id="btn-fonte-menos" aria-label="Diminuir tamanho da fonte">A−</button>
+      <button type="button" id="btn-fonte-mais" aria-label="Aumentar tamanho da fonte">A+</button>
+      <button type="button" id="btn-contraste" aria-pressed="false">Alto contraste</button>
+      <p id="aviso-acess" class="sr-only" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <header class="cabecalho">
+    <div class="container">
+      <a class="logo" href="index.html">
+        <img src="img/logo.svg" alt="" width="40" height="40">
+        <span>Alaga Não</span>
+      </a>
+      <button type="button" class="menu-botao" aria-expanded="false" aria-controls="menu-principal">Menu ☰</button>
+      <nav class="menu" id="menu-principal" aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html" aria-current="page">Início</a></li>
+          <li><a href="solucao.html">Solução</a></li>
+          <li><a href="impacto.html">Impacto</a></li>
+          <li><a href="participe.html">Participe</a></li>
+          <li><a href="equipe.html">Equipe</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" tabindex="-1">
+    <section class="hero" aria-labelledby="titulo-hero">
+      <div class="container">
+        <div>
+          <h1 id="titulo-hero">Saiba antes de a água chegar.</h1>
+          <p>O <strong>Alaga Não</strong> cruza a previsão de chuva com os pontos que mais alagam em Louveira e região e avisa o morador <strong>no celular, antes</strong> da rua encher — com o que fazer e por onde ir.</p>
+          <div class="botoes">
+            <a class="botao" href="solucao.html">Testar a simulação</a>
+            <a class="botao botao--contorno" href="participe.html">Quero receber alertas</a>
+          </div>
+        </div>
+        <img class="hero__imagem" src="img/hero.svg" alt="Ilustração de uma casa com a rua alagada sob chuva e um celular mostrando um alerta de risco.">
+      </div>
+    </section>
+
+    <section class="secao secao--clara" aria-labelledby="titulo-cidadao">
+      <div class="container grade grade--2">
+        <div>
+          <h2 id="titulo-cidadao">Quem é o cidadão</h2>
+          <p>Moradores de bairros baixos e próximos a rios e córregos de <strong>Louveira, Jundiaí, Vinhedo, Itupeva e Valinhos</strong>: famílias que perdem móveis e documentos, trabalhadores que ficam presos no trânsito alagado, idosos que não conseguem sair de casa a tempo e pequenos produtores rurais que dependem de estradas de terra.</p>
+          <h2>O problema</h2>
+          <p>As chuvas de verão chegam rápido e muito fortes. Hoje, a maior parte dos moradores só descobre que a rua alagou <strong>quando a água já está na porta</strong>. Os avisos existentes são gerais para a cidade toda e não dizem <em>qual rua</em> está em risco nem <em>o que fazer</em>.</p>
+        </div>
+        <div>
+          <div class="dado-real">
+            <span class="numero">8,3 milhões</span>
+            <p>de brasileiros moravam em áreas de risco de enchentes e deslizamentos, em 872 municípios monitorados.</p>
+            <p class="fonte">Fonte: IBGE e Cemaden, <a href="https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/21565-em-2010-brasil-tinha-8-3-milhoes-de-pessoas-morando-em-areas-com-risco-de-desastres-naturais.html" target="_blank" rel="noopener">População em áreas de risco no Brasil<span class="sr-only"> (abre em nova aba)</span></a> (dados do Censo 2010).</p>
+          </div>
+          <br>
+          <div class="dado-real">
+            <span class="numero">71 mm em 3 h</span>
+            <p>foi o volume de chuva registrado em Jundiaí num único temporal, com pontos de alagamento em vários bairros e casas interditadas.</p>
+            <p class="fonte">Fonte: Defesa Civil de Jundiaí com dados do Cemaden, via <a href="https://tribunadejundiai.com.br/cidades/jundiai/chuvas-derrubam-muro-e-deixa-familias-desabrigadas-em-jundiai/" target="_blank" rel="noopener">Tribuna de Jundiaí<span class="sr-only"> (abre em nova aba)</span></a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao" aria-labelledby="titulo-proposta">
+      <div class="container">
+        <h2 id="titulo-proposta">Nossa proposta</h2>
+        <ol class="passos">
+          <li><h3>Mapeia</h3><p>Reúne os pontos que mais alagam em cada bairro, com dados da Defesa Civil e relatos dos moradores.</p></li>
+          <li><h3>Cruza</h3><p>Compara a chuva prevista (mm por hora) com o limite em que cada ponto costuma alagar.</p></li>
+          <li><h3>Avisa</h3><p>Envia alerta por SMS ou WhatsApp só para quem mora ou passa perto do ponto em risco.</p></li>
+          <li><h3>Orienta</h3><p>Diz o que fazer: subir móveis, evitar a rua, onde é o abrigo mais próximo.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="secao secao--clara" aria-labelledby="titulo-ods">
+      <div class="container">
+        <h2 id="titulo-ods">ODS da ONU ligados à solução</h2>
+        <ul class="ods-lista">
+          <li class="ods ods--11"><span class="ods__num" aria-hidden="true">11</span><span><strong>ODS 11 — Cidades e comunidades sustentáveis:</strong> reduz pessoas afetadas e perdas causadas por desastres com água.</span></li>
+          <li class="ods ods--13"><span class="ods__num" aria-hidden="true">13</span><span><strong>ODS 13 — Ação contra a mudança do clima:</strong> fortalece a adaptação a chuvas extremas com alerta precoce.</span></li>
+          <li class="ods ods--3"><span class="ods__num" aria-hidden="true">3</span><span><strong>ODS 3 — Saúde e bem-estar:</strong> evita afogamentos, acidentes e doenças como a leptospirose.</span></li>
+          <li class="ods ods--10"><span class="ods__num" aria-hidden="true">10</span><span><strong>ODS 10 — Redução das desigualdades:</strong> prioriza bairros mais vulneráveis e funciona até por SMS, sem internet.</span></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <div>
+        <p><strong>Alaga Não</strong> — alertas de alagamento para Louveira e região.</p>
+        <p>Global Solution 2026/2 · CitizenTech · FIAP · 1º ano Engenharia de Software</p>
+      </div>
+      <div>
+        <p>Protótipo acadêmico. Em emergência ligue <strong>199</strong> (Defesa Civil) ou <strong>193</strong> (Bombeiros).</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/acessibilidade.js"></script>
+</body>
+</html>
