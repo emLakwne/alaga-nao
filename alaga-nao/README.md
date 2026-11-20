@@ -28,7 +28,7 @@ O **Alaga Não** é uma CitizenTech de alerta de alagamento **por bairro** para 
 2. Dê dois cliques em **`index.html`** para abrir no navegador (Chrome, Edge ou Firefox).
 3. Não é preciso instalar nada nem rodar servidor.
 
-> Site publicado: **COLE_AQUI_O_LINK_DO_GITHUB_PAGES** (opcional)
+> Site publicado: **https://alaga-nao-alaga-nao.vercel.app/**
 
 ## Requisitos atendidos
 
@@ -72,7 +72,7 @@ Os pontos de alagamento, os limites de chuva e o número de moradores da simula�
 
 ## Vídeo pitch
 
-🎥 **COLE_AQUI_O_LINK_DO_VIDEO**
+🎥 **https://youtu.be/k6MMAmPnBCo**
 
 ## Fontes
 
